@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Igzard\Ncore;
 
 use GuzzleHttp\Exception\GuzzleException;
+use Igzard\Ncore\Common\Downloader;
 use Igzard\Ncore\Entity\Collection\TorrentCollection;
 use Igzard\Ncore\Entity\Search;
 use Igzard\Ncore\Exception\EmptyPasskeyException;
@@ -18,6 +19,7 @@ class Ncore
     private string $passkey;
     private \GuzzleHttp\Client $client;
     private RssParser $rssParser;
+    private Downloader $downloader;
 
     /**
      * @throws EmptyPasskeyException
@@ -29,6 +31,7 @@ class Ncore
         $this->passkey = $passkey;
         $this->client = new \GuzzleHttp\Client();
         $this->rssParser = new RssParser($this->passkey);
+        $this->downloader = new Downloader();
     }
 
     /**
@@ -49,6 +52,17 @@ class Ncore
         }
 
         return $this->rssParser->parse($response);
+    }
+
+    /**
+     * @throws GuzzleException
+     * @throws RequestException
+     */
+    public function download(Search $search, string $path, string $filename): void
+    {
+        $torrents = $this->search($search);
+
+        $this->downloader->download($path, $filename, $torrents->first()->getLink());
     }
 
     /**

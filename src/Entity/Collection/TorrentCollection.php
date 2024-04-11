@@ -19,4 +19,13 @@ class TorrentCollection
     {
         return count($this->values);
     }
+
+    public function first(): ?Torrent
+    {
+        foreach ($this->values as $value) {
+            return $value;
+        }
+
+        return null;
+    }
 }
