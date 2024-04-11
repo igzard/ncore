@@ -2,42 +2,62 @@
 
 declare(strict_types=1);
 
-namespace Ignacz\Ncoreparser;
+namespace Igzard\Ncore;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\GuzzleException;
-use Ignacz\Ncoreparser\Exception\AuthenticationException;
+use Igzard\Ncore\Entity\Collection\TorrentCollection;
 use Igzard\Ncore\Entity\Search;
-use Psr\Http\Message\ResponseInterface;
+use Igzard\Ncore\Exception\EmptyPasskeyException;
+use Igzard\Ncore\Exception\RequestException;
+use Igzard\Ncore\Service\RssParser;
 
 class Ncore
 {
-    private const RSS_URL = 'https://finderss.it.cx/?';
+    private const RSS_URL = 'https://finderss.it.cx/';
 
     private string $passkey;
-    private Client $client;
+    private \GuzzleHttp\Client $client;
+    private RssParser $rssParser;
 
+    /**
+     * @throws EmptyPasskeyException
+     */
     public function __construct(string $passkey)
     {
+        $this->validatePasskey($passkey);
+
         $this->passkey = $passkey;
         $this->client = new \GuzzleHttp\Client();
-
-        # $feed = simplexml_load_string($feed);
+        $this->rssParser = new RssParser($this->passkey);
     }
 
     /**
      * @throws GuzzleException
+     * @throws RequestException
      */
-    public function search(Search $search): ResponseInterface
+    public function search(Search $search): TorrentCollection
     {
         $options = [
-            'query' => [
-                's' => $search->getSearch(),
-                'cat' => $search->getCat(),
-            ],
+            's='.$search->getSearch(),
+            'cat='.$search->getCat()->value(),
         ];
 
-        return $this->client->request('GET', self::RSS_URL, $options);
+        $response = $this->client->request('GET', self::RSS_URL.'?&'.implode('&', $options).',');
+
+        if ($response->getStatusCode() !== 200) {
+            throw RequestException::create();
+        }
+
+        return $this->rssParser->parse($response);
+    }
+
+    /**
+     * @throws EmptyPasskeyException
+     */
+    private function validatePasskey(string $passkey): void
+    {
+        if (empty($passkey)) {
+            EmptyPasskeyException::create();
+        }
     }
 }
