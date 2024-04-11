@@ -28,6 +28,7 @@ $torrents = $ncore->search(
 ```
 
 ## Contributing
+
 Thank you for considering contributing to the PHP Ncore! To contribution follow the steps.
 
 ```bash
@@ -38,7 +39,9 @@ composer install
 
 branch name: {category}/{name} (eg.: fix/typo)
 
-After Open the PR.
+---------------------
+
+If you have any ideas, create an issue: https://github.com/igzard/ncore/issues 
 
 ## Licence
 
