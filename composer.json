@@ -1,11 +1,11 @@
 {
-    "name": "ignacz/ncoreparser",
+    "name": "igzard/ncore",
     "description": "PHP Ncore Parser",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Ignacz\\Ncoreparser\\": "src/"
+            "Igzard\\Ncore\\": "src/"
         }
     },
     "autoload-dev": {

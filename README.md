@@ -1,2 +1,2 @@
-# ncoreparser
-PHP Package for ncore
+# PHP - NCore
+PHP Package for NCore
