@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace Igzard\Ncore\Entity;
 
+use Igzard\Ncore\Common\Infrastructure\DateTime;
+use Igzard\Ncore\Enum\Category;
+
 class Torrent
 {
     private string $title;
     private string $link;
-    private string $category;
-    private string $pubDate;
+    private Category $category;
+    private DateTime $pubDate;
 
-    public function __construct(string $title, string $link, string $category, string $pubDate)
+    public function __construct(string $title, string $link, Category $category, DateTime $pubDate)
     {
         $this->title = $title;
         $this->link = $link;
@@ -29,12 +32,12 @@ class Torrent
         return $this->link;
     }
 
-    public function getCategory(): string
+    public function getCategory(): Category
     {
         return $this->category;
     }
 
-    public function getPubDate(): string
+    public function getPubDate(): DateTime
     {
         return $this->pubDate;
     }

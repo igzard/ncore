@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Igzard\Ncore\Entity;
 
+use Igzard\Ncore\Enum\Category;
+
 class Search
 {
     private string $search = '';
-    private string $cat = 'Film%20(HUN%20SD)';
+    private Category $cat = Category::FILM_SD_HUN;
 
     public function getSearch(): string
     {
@@ -21,12 +23,12 @@ class Search
         return $this;
     }
 
-    public function getCat(): string
+    public function getCat(): Category
     {
         return $this->cat;
     }
 
-    public function setCat(string $cat): self
+    public function setCat(Category $cat): self
     {
         $this->cat = $cat;
 
