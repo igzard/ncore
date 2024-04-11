@@ -1,5 +1,11 @@
 # PHP Package for Ncore RSS
 
+<p align="center">
+<a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/dt/igzard/ncore" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/v/igzard/ncore" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/l/igzard/ncore" alt="License"></a>
+</p>
+
 This module provides PHP API-s to manage torrents from ncore.pro eg.: search from RSS
 
 ## Install
