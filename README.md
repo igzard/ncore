@@ -39,11 +39,20 @@ Thank you for considering contributing to the PHP Ncore! To contribution follow 
 
 ```bash
 git clone git@github.com:igzard/ncore.git
-cd ncore
 composer install
 ```
 
-branch name: {category}/{name} (eg.: fix/typo)
+For running tests:
+
+```bash
+make phpunit
+```
+
+or
+
+```bash
+php ./vendor/bin/phpunit
+```
 
 ---------------------
 
