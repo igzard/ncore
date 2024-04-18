@@ -14,7 +14,7 @@ use Igzard\Ncore\Service\RssParser;
 
 class Ncore
 {
-    private self::RSS_URL = 'https://finderss.it.cx/';
+    private const RSS_URL = 'https://finderss.it.cx/';
 
     private string $passkey;
     private \GuzzleHttp\Client $client;
@@ -61,9 +61,7 @@ class Ncore
      */
     public function download(Search $search, string $path, string $filename): void
     {
-        $torrents = $this->search($search);
-
-        $this->downloader->download($path, $filename, $torrents->first()->getLink());
+        $this->downloader->download($path, $filename, $this->search($search)->first()->getLink());
     }
 
     /**

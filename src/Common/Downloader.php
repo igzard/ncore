@@ -6,8 +6,12 @@ namespace Igzard\Ncore\Common;
 
 class Downloader
 {
-    public function download(string $path, string $filename, string $url): void
+    public function download(string $path, string $filename, ?string $url): void
     {
+        if ($url === null) {
+            return;
+        }
+
         file_put_contents($path . '/' . $filename, file_get_contents($url));
     }
 }
