@@ -6,6 +6,7 @@ namespace Igzard\Ncore;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Igzard\Ncore\Common\Downloader;
+use Igzard\Ncore\Entity\Collection\Factory\TorrentCollectionFactory;
 use Igzard\Ncore\Entity\Collection\TorrentCollection;
 use Igzard\Ncore\Entity\Search;
 use Igzard\Ncore\Exception\EmptyPasskeyException;
@@ -16,10 +17,12 @@ class Ncore
 {
     private const RSS_URL = 'https://finderss.it.cx/';
 
-    private string $passkey;
     private \GuzzleHttp\Client $client;
+
+    private string $passkey;
     private RssParser $rssParser;
     private Downloader $downloader;
+    private TorrentCollectionFactory $torrentCollectionFactory;
 
     /**
      * @throws EmptyPasskeyException
@@ -31,8 +34,9 @@ class Ncore
         $this->client = new \GuzzleHttp\Client();
 
         $this->passkey = $passkey;
-        $this->rssParser = new RssParser($this->passkey);
+        $this->rssParser = new RssParser();
         $this->downloader = new Downloader();
+        $this->torrentCollectionFactory = new TorrentCollectionFactory();
     }
 
     /**
@@ -52,7 +56,10 @@ class Ncore
             throw RequestException::create();
         }
 
-        return $this->rssParser->parse($response);
+        return $this->torrentCollectionFactory->createFromXml(
+            $this->rssParser->parse($response),
+            $this->passkey
+        );
     }
 
     /**
