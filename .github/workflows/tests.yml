@@ -1,0 +1,27 @@
+name: tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  phpunit:
+    name: Run PHPUnit
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, intl
+        
+    - name: Install dependencies
+      run: composer install
+      
+    - name: Run PHPUnit
+      run: vendor/bin/phpunit
