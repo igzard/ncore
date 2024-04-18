@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Igzard\Ncore\Service;
+namespace Igzard\Ncore\Parser;
 
 use Psr\Http\Message\ResponseInterface;
 
