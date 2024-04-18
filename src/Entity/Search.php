@@ -9,7 +9,7 @@ use Igzard\Ncore\Enum\Category;
 class Search
 {
     private string $search = '';
-    private Category $cat = Category::FILM_SD_HUN;
+    private Category $cat = Category::FILM_HUN_SD;
 
     public function getSearch(): string
     {

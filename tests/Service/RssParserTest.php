@@ -29,13 +29,13 @@ class RssParserTest extends TestCase
             new Torrent(
                 'Toy.Story.of.Terror.2013.BDRip.x264.DD5.1.HUN-GEO',
                 'https://ncore.pro/torrents.php?action=download&id=3249413&key=342432432',
-                Category::FILM_SD_HUN,
+                Category::FILM_HUN_SD,
                 new DateTime('Fri, 29 Oct 2021 19:44:36 +0200')
             ),
             new Torrent(
                 'Toy Story 4',
                 'https://ncore.pro/torrents.php?action=download&id=3118057&key=342432432',
-                Category::FILM_SD_HUN,
+                Category::FILM_HUN_SD,
                 new DateTime('Mon, 21 Dec 2020 19:02:48 +0100')
             ),
         ];
