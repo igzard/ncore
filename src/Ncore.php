@@ -14,7 +14,7 @@ use Igzard\Ncore\Service\RssParser;
 
 class Ncore
 {
-    private const RSS_URL = 'https://finderss.it.cx/';
+    private self::RSS_URL = 'https://finderss.it.cx/';
 
     private string $passkey;
     private \GuzzleHttp\Client $client;
@@ -28,8 +28,9 @@ class Ncore
     {
         $this->validatePasskey($passkey);
 
-        $this->passkey = $passkey;
         $this->client = new \GuzzleHttp\Client();
+
+        $this->passkey = $passkey;
         $this->rssParser = new RssParser($this->passkey);
         $this->downloader = new Downloader();
     }
