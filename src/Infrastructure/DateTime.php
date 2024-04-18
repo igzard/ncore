@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Igzard\Ncore\Common\Infrastructure;
+namespace Igzard\Ncore\Infrastructure;
 
 use Carbon\Carbon;
 

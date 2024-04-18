@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Igzard\Ncore\Entity;
 
-use Igzard\Ncore\Common\Infrastructure\DateTime;
 use Igzard\Ncore\Enum\Category;
+use Igzard\Ncore\Infrastructure\DateTime;
 
 class Torrent
 {

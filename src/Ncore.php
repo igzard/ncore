@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Igzard\Ncore;
 
 use Igzard\Ncore\Client\NcoreClient;
-use Igzard\Ncore\Common\Downloader;
 use Igzard\Ncore\Entity\Collection\Factory\TorrentCollectionFactory;
 use Igzard\Ncore\Entity\Collection\TorrentCollection;
 use Igzard\Ncore\Entity\Search;
@@ -13,6 +12,7 @@ use Igzard\Ncore\Exception\ClientException;
 use Igzard\Ncore\Exception\EmptyPasskeyException;
 use Igzard\Ncore\Exception\RequestException;
 use Igzard\Ncore\Parser\RssParser;
+use Igzard\Ncore\Service\Downloader;
 use Igzard\Ncore\Validation\Validation;
 
 class Ncore

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Igzard\Ncore\Common;
+namespace Igzard\Ncore\Service;
 
 class Downloader
 {
