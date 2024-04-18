@@ -12,7 +12,7 @@ use Igzard\Ncore\Entity\Search;
 use Igzard\Ncore\Exception\ClientException;
 use Igzard\Ncore\Exception\EmptyPasskeyException;
 use Igzard\Ncore\Exception\RequestException;
-use Igzard\Ncore\Service\RssParser;
+use Igzard\Ncore\Parser\RssParser;
 use Igzard\Ncore\Validation\Validation;
 
 class Ncore
