@@ -17,7 +17,7 @@ class TorrentCollection
 
     public function count(): int
     {
-        return count($this->values);
+        return \count($this->values);
     }
 
     public function first(): ?Torrent
