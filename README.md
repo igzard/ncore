@@ -54,6 +54,18 @@ or
 php ./vendor/bin/phpunit
 ```
 
+Coding style fix:
+
+```bash
+make cs-fix
+```
+
+or
+
+```bash
+php ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
+```
+
 ---------------------
 
 If you have any ideas, create an issue: https://github.com/igzard/ncore/issues 

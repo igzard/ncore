@@ -1,5 +1,7 @@
 /.idea/
 /vendor/
 /playground
+/tools/php-cs-fixer/vendor
 /.phpunit.cache
+.php-cs-fixer.cache
 .phpunit.result.cache

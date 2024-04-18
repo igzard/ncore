@@ -15,10 +15,10 @@ class TorrentCollectionFactory
     {
         $torrents = [];
 
-        foreach($xml->channel->item as $item) {
+        foreach ($xml->channel->item as $item) {
             $torrents[] = new Torrent(
                 (string) $item->title,
-                $item->link . '&key=' . $passkey,
+                $item->link.'&key='.$passkey,
                 Category::make((string) $item->category),
                 new DateTime((string) $item->pubDate)
             );

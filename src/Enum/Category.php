@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Igzard\Ncore\Enum;
 
 enum Category
@@ -19,8 +21,7 @@ enum Category
 
     public function value(): string
     {
-        return match($this)
-        {
+        return match ($this) {
             self::FILM_HUN_SD => 'Film (HUN SD)',
             self::FILM_HUN_DVD9 => 'Film (HUN DVD9)',
             self::SOROZAT_ENG_DVD => 'Sorozat (ENG DVD)',
@@ -38,8 +39,7 @@ enum Category
 
     public static function make(string $value): self
     {
-        return match($value)
-        {
+        return match ($value) {
             'Film (HUN SD)' => self::FILM_HUN_SD,
             'Film (HUN DVD9)' => self::FILM_HUN_DVD9,
             'Sorozat (ENG DVD)' => self::SOROZAT_ENG_DVD,
