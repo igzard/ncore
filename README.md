@@ -29,7 +29,7 @@ $ncore = new Ncore('{passkey}');
 $torrents = $ncore->search(
     (new Search())
         ->setSearch('Toy Story')
-        ->setCat(Category::FILM_SD_HUN)
+        ->setCat(Category::FILM_HUN_SD)
 );
 ```
 
