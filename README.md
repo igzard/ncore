@@ -1,6 +1,6 @@
 # PHP Package for Ncore RSS
 
-<p align="center">
+<p align="left">
 <a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/dt/igzard/ncore" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/v/igzard/ncore" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/l/igzard/ncore" alt="License"></a>
@@ -24,12 +24,19 @@ composer require igzard/ncore
 Searching for Toy Story in category: Film (HUN SD)
 
 ```php
-
 $ncore = new Ncore('{passkey}');
 $torrents = $ncore->search(
-    (new Search())
-        ->setSearch('Toy Story')
-        ->setCat(Category::FILM_HUN_SD)
+    (new Search())->setSearch('Toy Story')->setCat(Category::FILM_HUN_SD)
+);
+```
+
+Download first match for Toy Story in category: Film (HUN SD)
+```php
+$ncore = new Ncore('{passkey}');
+$torrents = $ncore->download(
+    (new Search())->setSearch('Toy Story')->setCat(Category::FILM_HUN_SD),
+    '{pathToDownload}',
+    '{filename}'
 );
 ```
 
