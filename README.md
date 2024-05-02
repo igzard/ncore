@@ -2,7 +2,7 @@
 
 <p align="left">
 <a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/dt/igzard/ncore" alt="Total Downloads"></a>
-<a href="https://github.com/igzard/ncore/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/igzard/ncore/tests.yml?label=Tests&style=flat-square" alt="Tests passed"></a>
+<a href="https://github.com/igzard/ncore/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/igzard/ncore/tests.yml?label=tests&style=flat-square" alt="Tests passed"></a>
 <a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/v/igzard/ncore" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/igzard/ncore"><img src="https://img.shields.io/packagist/l/igzard/ncore" alt="License"></a>
 </p>
