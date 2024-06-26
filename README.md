@@ -22,20 +22,24 @@ composer require igzard/ncore
 
 ## Examples
 
-Searching for Toy Story in category: Film (HUN SD)
+Searching for Toy Story in category: Film (HUN SD). By default, without category, it searches in film hun sd.
 
 ```php
 $ncore = new Ncore('{passkey}');
-$torrents = $ncore->search(
-    (new Search())->setSearch('Toy Story')->setCat(Category::FILM_HUN_SD)
-);
+$torrents = $ncore->search([
+    'search' => 'Toy Story',
+    'category' => Category::FILM_HUN_SD
+]);
 ```
 
-Download first match for Toy Story in category: Film (HUN SD)
+Download first match for Toy Story in category: Film (HUN SD). By default, without category, it searches in film hun sd.
 ```php
 $ncore = new Ncore('{passkey}');
 $torrents = $ncore->download(
-    (new Search())->setSearch('Toy Story')->setCat(Category::FILM_HUN_SD),
+    [
+        'search' => 'Toy Story',
+        'category' => Category::FILM_HUN_SD
+    ],
     '{pathToDownload}',
     '{filename}'
 );
@@ -47,6 +51,9 @@ Thank you for considering contributing to the PHP Ncore! To contribution follow 
 
 ```bash
 git clone git@github.com:igzard/ncore.git
+composer install
+
+cd tools/php-cs-fixer
 composer install
 ```
 

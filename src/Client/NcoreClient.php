@@ -30,7 +30,7 @@ class NcoreClient
     {
         $options = [
             's='.$search->getSearch(),
-            'cat='.$search->getCat()->value(),
+            'cat='.$search->getCategory()->value(),
         ];
 
         try {

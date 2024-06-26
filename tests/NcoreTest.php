@@ -7,6 +7,7 @@ namespace Igzard\Ncore\Tests;
 use GuzzleHttp\Exception\GuzzleException;
 use Igzard\Ncore\Entity\Search;
 use Igzard\Ncore\Enum\Category;
+use Igzard\Ncore\Exception\ClientException;
 use Igzard\Ncore\Exception\EmptyPasskeyException;
 use Igzard\Ncore\Exception\RequestException;
 use Igzard\Ncore\Ncore;
@@ -22,7 +23,7 @@ class NcoreTest extends TestCase
     }
 
     /**
-     * @throws GuzzleException
+     * @throws ClientException
      * @throws RequestException
      */
     public function testPasskeyIsEmpty(): void
@@ -30,8 +31,9 @@ class NcoreTest extends TestCase
         $this->expectException(EmptyPasskeyException::class);
 
         $this->ncore = new Ncore('');
-        $this->ncore->search((new Search())
-            ->setSearch('Toy Story')
-            ->setCat(Category::FILM_HUN_SD));
+        $this->ncore->search([
+            'search' => 'Toy Story',
+            'category' => Category::FILM_HUN_SD
+        ]);
     }
 }

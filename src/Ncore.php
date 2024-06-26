@@ -7,7 +7,7 @@ namespace Igzard\Ncore;
 use Igzard\Ncore\Client\NcoreClient;
 use Igzard\Ncore\Entity\Collection\Factory\TorrentCollectionFactory;
 use Igzard\Ncore\Entity\Collection\TorrentCollection;
-use Igzard\Ncore\Entity\Search;
+use Igzard\Ncore\Entity\Factory\SearchFactory;
 use Igzard\Ncore\Exception\ClientException;
 use Igzard\Ncore\Exception\EmptyPasskeyException;
 use Igzard\Ncore\Exception\RequestException;
@@ -23,6 +23,7 @@ class Ncore
     private RssParser $rssParser;
     private Downloader $downloader;
     private TorrentCollectionFactory $torrentCollectionFactory;
+    private SearchFactory $searchFactory;
 
     /**
      * @throws EmptyPasskeyException
@@ -37,16 +38,19 @@ class Ncore
         $this->rssParser = new RssParser();
         $this->downloader = new Downloader();
         $this->torrentCollectionFactory = new TorrentCollectionFactory();
+        $this->searchFactory = new SearchFactory();
     }
 
     /**
      * @throws RequestException
      * @throws ClientException
      */
-    public function search(Search $search): TorrentCollection
+    public function search(array $search): TorrentCollection
     {
         return $this->torrentCollectionFactory->createFromXml(
-            $this->rssParser->parse($this->client->search($search)),
+            $this->rssParser->parse($this->client->search(
+                $this->searchFactory->createFromArray($search)
+            )),
             $this->passkey
         );
     }
@@ -55,8 +59,12 @@ class Ncore
      * @throws RequestException
      * @throws ClientException
      */
-    public function download(Search $search, string $path, string $filename): void
+    public function download(array $search, string $path, string $filename): void
     {
-        $this->downloader->download($path, $filename, $this->search($search)->first()->getLink());
+        $this->downloader->download(
+            $path,
+            $filename,
+            $this->search($search)->first()->getLink()
+        );
     }
 }

@@ -18,10 +18,10 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
-        extensions: mbstring, intl
+        extensions: mbstring, intl, ext-http
         
     - name: Install dependencies
-      run: composer install
+      run: composer install --ignore-platform-req=ext-http
       
     - name: Run PHPUnit
       run: vendor/bin/phpunit
