@@ -33,7 +33,7 @@ class NcoreTest extends TestCase
         $this->ncore = new Ncore('');
         $this->ncore->search([
             'search' => 'Toy Story',
-            'cat' => Category::FILM_HUN_SD
+            'category' => Category::FILM_HUN_SD
         ]);
     }
 }

@@ -9,7 +9,7 @@ use Igzard\Ncore\Enum\Category;
 class Search
 {
     private string $search = '';
-    private Category $cat = Category::FILM_HUN_SD;
+    private Category $category = Category::FILM_HUN_SD;
 
     public function getSearch(): string
     {
@@ -23,14 +23,14 @@ class Search
         return $this;
     }
 
-    public function getCat(): Category
+    public function getCategory(): Category
     {
-        return $this->cat;
+        return $this->category;
     }
 
-    public function setCat(Category $cat): self
+    public function setCategory(Category $category): self
     {
-        $this->cat = $cat;
+        $this->category = $category;
 
         return $this;
     }
