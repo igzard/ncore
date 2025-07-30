@@ -18,6 +18,7 @@ enum Category
     case FILM_ENG_SD;
     case SOROZAT_ENG_SD;
     case SOROZAT_HUN_SD;
+    case AI_HUN_SDK;
 
     public function value(): string
     {
@@ -34,6 +35,7 @@ enum Category
             self::FILM_ENG_SD => 'Film (ENG SD)',
             self::SOROZAT_ENG_SD => 'Sorozat (ENG SD)',
             self::SOROZAT_HUN_SD => 'Sorozat (HUN SD)',
+            self::AI_HUN_SDK => 'AI (HUN SDK)',
         };
     }
 
@@ -52,6 +54,7 @@ enum Category
             'Film (ENG SD)' => self::FILM_ENG_SD,
             'Sorozat (ENG SD)' => self::SOROZAT_ENG_SD,
             'Sorozat (HUN SD)' => self::SOROZAT_HUN_SD,
+            'AI (HUN SDK)' => self::AI_HUN_SDK,
         };
     }
 }
